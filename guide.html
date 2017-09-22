@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+    <title>ShadowSocks.Expert:教程</title>
+</head>
+<body>
+<header class="sse-header">
+    <div id="sse-logo"><a href="index.html"><img src="img/sseLogo.png" alt="Logo"></a></div>
+    <nav class="sse-main-nav"><ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="introduce.html">简介</a></li>
+        <li><a href="tutorials.html">教程</a></li>
+        <li><a href="download.html">下载</a></li>
+        <li><a href="guide.html">指南</a></li>
+        <li><a href="purchase.html">购买</a></li>
+        <li><a href="help.html">帮助</a></li>
+    </ul></nav> <!-- sse-main-nav -->
+</header>
+
+<main class="sse-main-content">
+    <div id="contentInfo">
+        <div class="sub-title">快速指南</div>
+        <div class="guide_title">配置文件</div>
+        <div class="guide_text">Shadowsocks接受这样的JSON格式配置：</div>
+        <div class="guide_code">
+            {<br>
+            "server":"my_server_ip",<br>
+            "server_port":8388,<br>
+            "local_port":1080,<br>
+            "password":"barfoo!",<br>
+            "timeout":600,<br>
+            "method":"chacha20-ietf-poly1305"<br>
+            }
+        </div>
+        <div class="guide_text">每个字段的说明：</div>
+        <div class="guide_text">
+            <ul>
+                <li>server：您的主机名或服务器IP（IPv4 / IPv6）。</li>
+                <li>server_port：服务器端口号。</li>
+                <li>local_port：本地端口号。</li>
+                <li>password：用于加密传输的密码。</li>
+                <li>timeout：连接超时（秒）。</li>
+                <li>method：加密方式</li>
+            </ul>
+        </div>
+
+        <div class="guide_title">加密方式</div>
+        <div class="guide_text">最强的选择是AEAD密码。推荐的选择是“chacha20-ietf-poly1305”或“aes-256-gcm”。
+            实现其他流密码，但不提供完整性和真实性。除非另有说明，加密方式默认为“表”，这是不安全的。</div>
+
+        <div class="guide_title">URI和QR码</div>
+        <div class="guide_text">用于Android / iOS的Shadowsocks也接受BASE64编码的URI格式配置：</div>
+        <div class="guide_code">ss://BASE64-ENCODED-STRING-WITHOUT-PADDING#TAG</div>
+        <div class="guide_text">纯URI应该在哪里：</div>
+        <div class="guide_code">ss://method:password@hostname:port</div>
+        <div class="guide_text">例如，我们有一个192.168.100.1:8888使用bf-cfb加密方法和密码的服务器test。然后，使用普通URI </div>
+        <div class="guide_code">ss://bf-cfb:test@192.168.100.1:8888，我们可以生成BASE64编码的URI：</div>
+        <div class="guide_code">ss://YmYtY2ZiOnRlc3RAMTkyLjE2OC4xMDAuMTo4ODg4Cg</div>
+        <div class="guide_text">为了帮助组织和识别这些URI，您可以在BASE64编码的字符串后附加一个标签：</div>
+        <div class="guide_code">ss://YmYtY2ZiOnRlc3RAMTkyLjE2OC4xMDAuMTo4ODg4Cg#example-server</div>
+        <div class="guide_text">该URI也可以编码为QR码。然后，只需使用Android / iOS设备进行扫描即可：</div>
+        <div class="guide_img"><img src="img/ss_QRcode.png" alt="QR码"></div>
+
+        <div class="guide_title">亲自试试</div>
+        <div class="guide_text">URI:</div>
+        <div class="guide_code">ss://bf-cfb:test@192.168.100.1:8888</div>
+        <div class="guide_text">编码:</div>
+        <div class="guide_code">ss://YmYtY2ZiOnRlc3RAMTkyLjE2OC4xMDAuMTo4ODg4#example-server</div>
+        <div class="guide_img"><img src="img/ss_QRcode_try.png" alt="QR码"></div>
+    </div>
+
+    </div>
+
+
+
+</main> <!-- sse-main-content -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>
